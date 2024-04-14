@@ -1,8 +1,30 @@
-<script setup>
-const options = reactive({
-  gender: "Junge",
-  popularity: "Einzigartig",
-  length: "kurz",
+<script setup lang="ts">
+enum Gender {
+  JUNGE = "Junge",
+  MÄDCHEN = "Mädchen",
+}
+
+enum Populatity {
+  TRENDY = "Trendy",
+  EINZIGARTIG = "Einzigartig",
+}
+
+enum Length {
+  SHORT = "Kurz",
+  LONG = "Lang",
+  BOTH = "Egal",
+}
+
+interface OptionsState {
+  gender: Gender;
+  popularity: Populatity;
+  length: Length;
+}
+
+const options = reactive<OptionsState>({
+  gender: Gender.JUNGE,
+  popularity: Populatity.EINZIGARTIG,
+  length: Length.LONG,
 });
 </script>
 
@@ -19,13 +41,13 @@ const options = reactive({
         <div class="option-buttons">
           <button
             class="btn btn-left"
-            :class="options.gender === 'Junge' && 'btn-active'"
+            :class="options.gender === Gender.JUNGE && 'btn-active'"
           >
             Junge
           </button>
           <button
             class="btn btn-right"
-            :class="options.gender === 'Mädchen' && 'btn-active'"
+            :class="options.gender === Gender.MÄDCHEN && 'btn-active'"
           >
             Mädchen
           </button>
@@ -36,13 +58,15 @@ const options = reactive({
         <div class="option-buttons">
           <button
             class="btn btn-left"
-            :class="options.popularity === 'Trendy' && 'btn-active'"
+            :class="options.popularity === Populatity.TRENDY && 'btn-active'"
           >
             Trendy
           </button>
           <button
             class="btn btn-right"
-            :class="options.popularity === 'Einzigartig' && 'btn-active'"
+            :class="
+              options.popularity === Populatity.EINZIGARTIG && 'btn-active'
+            "
           >
             Einzigartig
           </button>
@@ -53,19 +77,19 @@ const options = reactive({
         <div class="option-buttons">
           <button
             class="btn btn-left"
-            :class="options.length === 'lang' && 'btn-active'"
+            :class="options.length === Length.LONG && 'btn-active'"
           >
             Lang
           </button>
           <button
             class="btn"
-            :class="options.length === 'alles' && 'btn-active'"
+            :class="options.length === Length.BOTH && 'btn-active'"
           >
             Alles
           </button>
           <button
             class="btn btn-right"
-            :class="options.length === 'kurz' && 'btn-active'"
+            :class="options.length === Length.SHORT && 'btn-active'"
           >
             Kurz
           </button>
