@@ -42,14 +42,16 @@ const options = reactive<OptionsState>({
           <button
             class="btn btn-left"
             :class="options.gender === Gender.JUNGE && 'btn-active'"
+            @click="options.gender = Gender.JUNGE"
           >
-            Junge
+            {{ Gender.JUNGE }}
           </button>
           <button
             class="btn btn-right"
             :class="options.gender === Gender.MÄDCHEN && 'btn-active'"
+            @click="options.gender = Gender.MÄDCHEN"
           >
-            Mädchen
+            {{ Gender.MÄDCHEN }}
           </button>
         </div>
       </div>
@@ -59,16 +61,18 @@ const options = reactive<OptionsState>({
           <button
             class="btn btn-left"
             :class="options.popularity === Populatity.TRENDY && 'btn-active'"
+            @click="options.popularity = Populatity.TRENDY"
           >
-            Trendy
+            {{ Populatity.TRENDY }}
           </button>
           <button
             class="btn btn-right"
             :class="
               options.popularity === Populatity.EINZIGARTIG && 'btn-active'
             "
+            @click="options.popularity = Populatity.EINZIGARTIG"
           >
-            Einzigartig
+            {{ Populatity.EINZIGARTIG }}
           </button>
         </div>
       </div>
@@ -78,20 +82,23 @@ const options = reactive<OptionsState>({
           <button
             class="btn btn-left"
             :class="options.length === Length.LONG && 'btn-active'"
+            @click="options.length = Length.LONG"
           >
-            Lang
+            {{ Length.LONG }}
           </button>
           <button
             class="btn"
             :class="options.length === Length.BOTH && 'btn-active'"
+            @click="options.length = Length.BOTH"
           >
-            Alles
+            {{ Length.BOTH }}
           </button>
           <button
             class="btn btn-right"
             :class="options.length === Length.SHORT && 'btn-active'"
+            @click="options.length = Length.SHORT"
           >
-            Kurz
+            {{ Length.SHORT }}
           </button>
         </div>
       </div>
