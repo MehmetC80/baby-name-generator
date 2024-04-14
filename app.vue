@@ -109,7 +109,7 @@ const options = reactive<OptionsState>({
 <style scoped>
 .container {
   font-family: Arial, Helvetica, sans-serif;
-  color: rgb(255, 255, 255);
+  color: rgb(246, 236, 236);
   max-width: 50rem;
   margin: 0 auto;
   text-align: center;
@@ -117,6 +117,12 @@ const options = reactive<OptionsState>({
 
 .container h1 {
   font-size: 3rem;
+  color: rgb(52, 52, 52);
+}
+
+.container p {
+  font-size: 1rem;
+  color: rgb(52, 52, 52);
 }
 
 .options-container {
